@@ -20,9 +20,11 @@ class AppLocalizations {
   Map<String, String>? _localizedStrings;
 
   Future<void> load() async {
+    print(
+        'the locale info is l.code "${locale.languageCode}:  country code:${locale.countryCode}');
     //Load the language JSON file from the "lang" folder
     String jsonString =
-        await rootBundle.loadString('lang/${locale.countryCode}.json');
+        await rootBundle.loadString('lang/${locale.languageCode}.json');
 
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);
 
@@ -33,7 +35,7 @@ class AppLocalizations {
   //This method will be used for every eidget that need localized text
 
   String? translate(String key) {
-    return _localizedStrings![key];
+    return _localizedStrings?[key];
   }
 }
 
@@ -43,7 +45,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['es', 'en'].contains(locale.languageCode);
+    return ['hi', 'en'].contains(locale.languageCode);
   }
 
   @override
