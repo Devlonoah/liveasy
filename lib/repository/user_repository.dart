@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 // class FirebaseAuthDataProvider {
 //   FirebaseAuth _firebaseAuth;
@@ -23,6 +21,12 @@ class UserRepository {
   final FirebaseAuth _firebaseAuth;
 
   UserRepository(this._firebaseAuth);
+
+  Future usePhoneToSignIn(String phoneNumber) async {
+    try {
+      return await _firebaseAuth.signInWithPhoneNumber(phoneNumber);
+    } catch (e) {}
+  }
 
   Future<void> sendOtp(
       String phoneNumber,
