@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:liveasy_assignment/app_localization.dart';
+import 'package:liveasy_assignment/localization/app_localization.dart';
 import 'package:liveasy_assignment/pages/select_language/select_language.dart';
 
 void main() {
