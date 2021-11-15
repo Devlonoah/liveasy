@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liveasy_assignment/constants/colors.dart';
 import 'package:liveasy_assignment/constants/spacing.dart';
 import 'package:liveasy_assignment/constants/style.dart';
 import 'package:liveasy_assignment/constants/translation_constant.dart';
@@ -35,8 +36,9 @@ class OtpInputPageBody extends StatelessWidget {
           addVerticalSpace(112),
           HeaderWithSubtitle(
             title: TranslationConstant.verifyphone.t(context)!,
-            subtitle: "${TranslationConstant.codeissentto} 94508485",
+            subtitle: "${TranslationConstant.codeissentto.t(context)} 94508485",
           ),
+          addVerticalSpace(24),
           otpinput(context),
           addVerticalSpace(16),
           Row(
@@ -63,9 +65,23 @@ class OtpInputPageBody extends StatelessWidget {
     return SizedBox(
       height: 40.h,
       child: PinCodeTextField(
+        pinTheme: PinTheme(
+          activeFillColor: Pallete.lightBlue,
+          inactiveFillColor: Pallete.mainBlack,
+          selectedFillColor: Pallete.slimBlue,
+          disabledColor: Colors.red,
+          inactiveColor: Colors.red,
+          selectedColor: Colors.red,
+          activeColor: Colors.red,
+          errorBorderColor: Colors.red,
+          fieldHeight: 48.h,
+          fieldWidth: 48.w,
+        ),
         enableActiveFill: true,
         appContext: context,
         length: 5,
+        textStyle: headerTextStyle,
+        keyboardType: TextInputType.number,
         onChanged: (x) {},
       ),
     );

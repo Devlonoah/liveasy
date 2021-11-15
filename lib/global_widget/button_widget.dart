@@ -19,8 +19,14 @@ class ButtonWidget extends StatelessWidget {
       onPressed: onPress,
       child: Text(
         label,
+        textHeightBehavior: TextHeightBehavior(
+            applyHeightToFirstAscent: false, applyHeightToLastDescent: false),
         style: TextStyle(
-            fontSize: 16.sp, fontWeight: FontWeight.w700, color: Colors.white),
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
+            height: 20.h),
+        // strutStyle: StrutStyle(height: 20.h),
       ),
     );
   }

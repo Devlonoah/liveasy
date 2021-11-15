@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:liveasy_assignment/constants/spacing.dart';
 import 'package:liveasy_assignment/constants/style.dart';
@@ -18,13 +20,15 @@ class HeaderWithSubtitle extends StatelessWidget {
           title!,
           textAlign: TextAlign.center,
           style: headerTextStyle,
+          strutStyle: StrutStyle(height: 0.0.h),
         ),
         addVerticalSpace(8.h),
         subtitle != null
             ? Text(subtitle!,
-                textAlign: TextAlign.center, style: subtitleTextStyle)
+                strutStyle: StrutStyle(height: 0.0.h),
+                textAlign: TextAlign.center,
+                style: subtitleTextStyle)
             : const SizedBox.shrink(),
-        addVerticalSpace(24),
       ],
     );
   }

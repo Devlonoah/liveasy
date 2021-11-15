@@ -25,11 +25,12 @@ class SelectLanguagePage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            addVerticalSpace(219),
+            addVerticalSpace(216),
             HeaderWithSubtitle(
               title: TranslationConstant.selectLanguage.t(context),
               subtitle: TranslationConstant.changelanguageanytime.t(context)!,
             ),
+            addVerticalSpace(24),
             BlocBuilder<LocaleCubit, LocaleState>(
               builder: (context, state) {
                 return DropDownWidget(
@@ -90,6 +91,7 @@ class DropDownWidget extends StatelessWidget {
     return Container(
       height: 48.h,
       width: 216.w,
+      alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 8.w),
       decoration: BoxDecoration(border: Border.all(width: 1.sp)),
       child: DropdownButton<String>(
