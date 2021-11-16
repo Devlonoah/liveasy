@@ -1,8 +1,11 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:liveasy_assignment/data/repository/user_repository.dart';
 
 import 'package:liveasy_assignment/localization/app_localization.dart';
 
@@ -14,7 +17,7 @@ import 'package:liveasy_assignment/pages/select_language/select_language.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(
     const MyApp(),
   );
@@ -28,7 +31,12 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 640),
       builder: () => MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => LocaleCubit())],
+        providers: [
+          BlocProvider(create: (context) => LocaleCubit()),
+          // BlocProvider(
+          //   create: (context) => AuthBloc(UserRepository(FirebaseAuth())),
+          // )
+        ],
         child: BlocBuilder<LocaleCubit, LocaleState>(
           builder: (context, localeState) {
             return MaterialApp(
