@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveasy_assignment/localization/spacing.dart';
-import 'package:liveasy_assignment/localization/style.dart';
+import '../localization/spacing.dart';
+import '../localization/style.dart';
 
 class HeaderWithSubtitle extends StatelessWidget {
   final String? title;

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import 'package:liveasy_assignment/localization/language.dart';
+import '../../localization/language.dart';
 
 part 'locale_state.dart';
 

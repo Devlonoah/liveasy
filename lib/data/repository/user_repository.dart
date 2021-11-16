@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:liveasy_assignment/error/failure.dart';
+import '../../error/failure.dart';
 
 class UserRepository {
   final FirebaseAuth _firebaseAuth;

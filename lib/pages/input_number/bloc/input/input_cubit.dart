@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:liveasy_assignment/data/repository/user_repository.dart';
+import '../../../../data/repository/user_repository.dart';
 
 part 'input_state.dart';
 

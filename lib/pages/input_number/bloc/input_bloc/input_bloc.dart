@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
-import 'package:liveasy_assignment/data/repository/user_repository.dart';
+import '../../../../data/repository/user_repository.dart';
 
 part 'input_event.dart';
 part 'input_state.dart';

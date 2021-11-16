@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveasy_assignment/localization/colors.dart';
+import 'colors.dart';
 
 final headerTextStyle = TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700);
 

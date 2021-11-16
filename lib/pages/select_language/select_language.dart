@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:liveasy_assignment/bloc/cubit/locale_cubit.dart';
-import 'package:liveasy_assignment/extension/string_extension.dart';
-import 'package:liveasy_assignment/global_widget/button_widget.dart';
-import 'package:liveasy_assignment/global_widget/header_with_subtitle.dart';
-import 'package:liveasy_assignment/global_widget/wavy_bottom_curves_container.dart';
-import 'package:liveasy_assignment/localization/language.dart';
-import 'package:liveasy_assignment/localization/spacing.dart';
-import 'package:liveasy_assignment/localization/style.dart';
-import 'package:liveasy_assignment/localization/translation_constant.dart';
-import 'package:liveasy_assignment/pages/input_number/input_number.dart';
+import '../../bloc/cubit/locale_cubit.dart';
+import '../../extension/string_extension.dart';
+import '../../global_widget/button_widget.dart';
+import '../../global_widget/header_with_subtitle.dart';
+import '../../global_widget/wavy_bottom_curves_container.dart';
+import '../../localization/language.dart';
+import '../../localization/spacing.dart';
+import '../../localization/style.dart';
+import '../../localization/translation_constant.dart';
+import '../input_number/input_number.dart';
 
 class SelectLanguagePage extends StatelessWidget {
   static String id = 'selectlanguagepage';
@@ -23,30 +23,32 @@ class SelectLanguagePage extends StatelessWidget {
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          children: [
-            addVerticalSpace(216),
-            HeaderWithSubtitle(
-              title: TranslationConstant.selectLanguage.t(context),
-              subtitle: TranslationConstant.changelanguageanytime.t(context)!,
-            ),
-            addVerticalSpace(24),
-            BlocBuilder<LocaleCubit, LocaleState>(
-              builder: (context, state) {
-                return DropDownWidget(
-                    value: state.locale.languageCode,
-                    onTap: (x) => BlocProvider.of<LocaleCubit>(context)
-                        .changeLanguage(x!));
-              },
-            ),
-            addVerticalSpace(24),
-            ButtonWidget(
-              label: TranslationConstant.next.t(context)!,
-              onPress: () => _navigateToInputNumberPage(context),
-            ),
-            const Spacer(),
-            wavyNBottomCurveContainer(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              addVerticalSpace(216),
+              HeaderWithSubtitle(
+                title: TranslationConstant.selectLanguage.t(context),
+                subtitle: TranslationConstant.changelanguageanytime.t(context)!,
+              ),
+              addVerticalSpace(24),
+              BlocBuilder<LocaleCubit, LocaleState>(
+                builder: (context, state) {
+                  return DropDownWidget(
+                      value: state.locale.languageCode,
+                      onTap: (x) => BlocProvider.of<LocaleCubit>(context)
+                          .changeLanguage(x!));
+                },
+              ),
+              addVerticalSpace(24),
+              ButtonWidget(
+                label: TranslationConstant.next.t(context)!,
+                onPress: () => _navigateToInputNumberPage(context),
+              ),
+              const Spacer(),
+              wavyNBottomCurveContainer(),
+            ],
+          ),
         ),
       ),
     );

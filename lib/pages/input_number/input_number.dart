@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:liveasy_assignment/data/repository/user_repository.dart';
-import 'package:liveasy_assignment/extension/widget_extension.dart';
-import 'package:liveasy_assignment/global_widget/button_widget.dart';
-import 'package:liveasy_assignment/global_widget/header_with_subtitle.dart';
-import 'package:liveasy_assignment/localization/colors.dart';
-import 'package:liveasy_assignment/localization/spacing.dart';
-import 'package:liveasy_assignment/localization/style.dart';
-import 'package:liveasy_assignment/localization/translation_constant.dart';
+import '../../data/repository/user_repository.dart';
+import '../../extension/widget_extension.dart';
+import '../../global_widget/button_widget.dart';
+import '../../global_widget/header_with_subtitle.dart';
+import '../../localization/colors.dart';
+import '../../localization/spacing.dart';
+import '../../localization/style.dart';
+import '../../localization/translation_constant.dart';
 
-import 'package:liveasy_assignment/pages/input_number/bloc/input_bloc/input_bloc.dart';
-import 'package:liveasy_assignment/pages/otp_input/otp_input.dart';
-import 'package:liveasy_assignment/extension/string_extension.dart';
+import 'bloc/input_bloc/input_bloc.dart';
+import '../otp_input/otp_input.dart';
+import '../../extension/string_extension.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 
 class InputNumber extends StatelessWidget {
@@ -59,25 +59,28 @@ class _InputBodyState extends State<InputBody> {
             child: LoadingOverlay(
               opacity: 0.4,
               isLoading: state.isSubmitting,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  addVerticalSpace(88),
-                  HeaderWithSubtitle(
-                    title: TranslationConstant.pleaseenteryournumber.t(context),
-                    subtitle:
-                        TranslationConstant.youllrecieve4digitcode.t(context)!,
-                  ),
-                  addVerticalSpace(20),
-                  MobileNumberInput(
-                    controller: _mobileTextController,
-                  ),
-                  addVerticalSpace(24),
-                  ButtonWidget(
-                      label: TranslationConstant.continuex.t(context)!,
-                      onPress: () => BlocProvider.of<InputBloc>(context).add(
-                          ContinueButtonPressed(_mobileTextController.text))),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    addVerticalSpace(88),
+                    HeaderWithSubtitle(
+                      title:
+                          TranslationConstant.pleaseenteryournumber.t(context),
+                      subtitle: TranslationConstant.youllrecieve4digitcode
+                          .t(context)!,
+                    ),
+                    addVerticalSpace(20),
+                    MobileNumberInput(
+                      controller: _mobileTextController,
+                    ),
+                    addVerticalSpace(24),
+                    ButtonWidget(
+                        label: TranslationConstant.continuex.t(context)!,
+                        onPress: () => BlocProvider.of<InputBloc>(context).add(
+                            ContinueButtonPressed(_mobileTextController.text))),
+                  ],
+                ),
               ),
             ),
           );

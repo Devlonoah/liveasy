@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 
-import 'package:liveasy_assignment/bloc/bloc/auth_event.dart';
-import 'package:liveasy_assignment/bloc/bloc/auth_state.dart';
-import 'package:liveasy_assignment/data/repository/user_repository.dart';
+import 'auth_event.dart';
+import 'auth_state.dart';
+import '../../data/repository/user_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:liveasy_assignment/data/models/account_type_model.dart';
-import 'package:liveasy_assignment/global_widget/button_widget.dart';
-import 'package:liveasy_assignment/global_widget/header_with_subtitle.dart';
+import '../../data/models/account_type_model.dart';
+import '../../global_widget/button_widget.dart';
+import '../../global_widget/header_with_subtitle.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveasy_assignment/extension/widget_extension.dart';
+import '../../extension/widget_extension.dart';
 
-import 'package:liveasy_assignment/extension/string_extension.dart';
-import 'package:liveasy_assignment/localization/spacing.dart';
-import 'package:liveasy_assignment/localization/style.dart';
-import 'package:liveasy_assignment/localization/translation_constant.dart';
+import '../../extension/string_extension.dart';
+import '../../localization/spacing.dart';
+import '../../localization/style.dart';
+import '../../localization/translation_constant.dart';
 
 class AcountType extends StatelessWidget {
   static String id = "AcountType";
@@ -27,34 +27,36 @@ class AcountTypeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        addVerticalSpace(112),
-        HeaderWithSubtitle(
-            title: TranslationConstant.pleaseselectyourprofile.t(context)!,
-            subtitle: ''),
-        addVerticalSpace(26),
-        ListView.separated(
-          itemCount: accountTypeList.length,
-          shrinkWrap: true,
-          separatorBuilder: (context, index) => addVerticalSpace(24),
-          itemBuilder: (context, index) {
-            final _accounType = accountTypeList[index];
-            return choiceCard(
-                title: TranslationConstant.customTranslate(_accounType.title)
-                    .t(context)!,
-                description: TranslationConstant.loremipsum,
-                imageUrl: _accounType.imageUrl);
-          },
-        ),
-        addVerticalSpace(24),
-        ButtonWidget(
-          label: TranslationConstant.continuex.t(context)!,
-          onPress: () {},
-        )
-      ],
-    ).addPadding().addScrollChildView();
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          addVerticalSpace(112),
+          HeaderWithSubtitle(
+              title: TranslationConstant.pleaseselectyourprofile.t(context)!,
+              subtitle: ''),
+          addVerticalSpace(26),
+          ListView.separated(
+            itemCount: accountTypeList.length,
+            shrinkWrap: true,
+            separatorBuilder: (context, index) => addVerticalSpace(24),
+            itemBuilder: (context, index) {
+              final _accounType = accountTypeList[index];
+              return choiceCard(
+                  title: TranslationConstant.customTranslate(_accounType.title)
+                      .t(context)!,
+                  description: TranslationConstant.loremipsum,
+                  imageUrl: _accounType.imageUrl);
+            },
+          ),
+          addVerticalSpace(24),
+          ButtonWidget(
+            label: TranslationConstant.continuex.t(context)!,
+            onPress: () {},
+          )
+        ],
+      ).addPadding().addScrollChildView(),
+    );
   }
 
   Widget choiceCard(

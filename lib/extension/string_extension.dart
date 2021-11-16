@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liveasy_assignment/localization/app_localization.dart';
+import '../localization/app_localization.dart';
 
 extension StringTranslation on String {
   String? t(BuildContext context) =>

@@ -5,15 +5,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:liveasy_assignment/data/repository/user_repository.dart';
+import 'data/repository/user_repository.dart';
 
-import 'package:liveasy_assignment/localization/app_localization.dart';
+import 'localization/app_localization.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:liveasy_assignment/bloc/cubit/locale_cubit.dart';
-import 'package:liveasy_assignment/core/routes.dart';
+import 'bloc/cubit/locale_cubit.dart';
+import 'core/routes.dart';
 
-import 'package:liveasy_assignment/pages/select_language/select_language.dart';
+import 'pages/select_language/select_language.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
