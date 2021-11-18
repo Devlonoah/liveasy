@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<LocaleCubit, LocaleState>(
           builder: (context, localeState) {
             return MaterialApp(
-              title: 'Flutter Demo',
+              title: 'Liveasy',
 
               builder: DevicePreview.appBuilder,
               theme: ThemeData(primarySwatch: Colors.blue),
